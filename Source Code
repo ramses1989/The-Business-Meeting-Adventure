@@ -1,0 +1,76 @@
+The story title is "The Business Meeting Adventure". 
+The story author is "Moises Ramses Jauregui". 
+The story headline is "Rising Star Takes the Lead: Young Professional Masters Business English and Secures Major Deal in High-Stakes Meeting Adventure". 
+The story genre is "Educational". 
+The release number is 1. 
+The story description is "Rising star learns business English to secure major deal. Navigates challenges and obstacles in high-stakes meeting adventure." 
+The story creation year is 2023. 
+
+Section 1 - The Map
+
+The Office is a room. "You are in an elegant office full of decorations. A passage leads west. [if the glass door is closed]A glass door blocks the way north.[otherwise]A glass door stands open to the north." A name badge is here. The name badge is wearable.
+The Meeting Room is a room. "You are in a vast meeting room, with an exit south. [if the glass door is closed]A glass door blocks the way south.[otherwise]A glass door stands open to the south." A CEO chair is here.
+A glass door is north of the Office and south of the Meeting Room. The glass door is a door. It is not openable. It is scenery.
+The Business English Classroom is west of the Office. "You are in a comfortable business english classroom. The word WEALTH is inscribed on the ceiling. A passage leads east, and a corridor full of electronic security doors leads north."
+The electronic security doors are north of the Business English Classroom and south of the Conference Room. The electronic security doors are a door. The electronic security doors are open. The electronic security doors are not openable. The electronic security doors are scenery.
+The Conference Room is a room. "You're to the north of the business english classroom in a cubicle The only exit seems to be back the way you came, south among the electronic security doors." A keycard is here.
+
+Section 2 - Getting through the electronic security doors by wearing a name badge
+
+Check going through the electronic security doors:
+	say "The alarm detects you while you pass.";
+	if the name badge is worn:
+		say "It identifies the name badge, which deactivates.";
+		now the name badge is nowhere;
+	otherwise if the name badge is carried:
+		say "You're not actually wearing the name badge, so the alarm detects you.";
+		end the story instead;
+	otherwise:
+		say "It informs security personnel about you. You have been escorted out of the building.";
+		end the story instead.
+
+Section 3 - Out of the cubicle by saying a code word
+
+Understand "wealth" or "say wealth" as allocating wealth.
+Allocating wealth is an action applying to nothing.
+Check allocating wealth:
+	if the player is not in the Conference room:
+		say "Nothing happens." instead.
+Carry out allocating wealth:
+	say "There is a fanfare of financial success, and you are propelled to new heights of prosperity!";
+	now the player is in the Office.
+
+Section 4 - Opening the glass door to the meeting room by waving the keycard
+
+After waving (noun):
+	if the player is in the Office and the glass door is closed and noun is keycard:
+		say "The glass door quietly swings open.";
+		now the glass door is open;
+	otherwise:
+		say "Nothing happens."
+
+Section 5 - The countdown - decreasing revenue levels
+
+Table of Financial Spreadsheet
+Turn Number	Message
+1	"The budget for this quarter is overspent by 15%."
+2	"The projected revenue for next quarter is lower than expected."
+3	"The expenses for the last quarter exceeded our budget by 10%."
+4	"The profit margin for this year is currently at a loss of 5%."
+5	"The current cash flow is negative and insufficient to cover our expenses."
+6	"The return on investment for this project is currently at a loss of 2%."
+7	"The current liabilities for the company are higher than our assets."
+8	"The net income for the last fiscal year was a loss of $500,000."
+9	"The current trend in sales indicates a potential decrease in revenue next quarter."
+10	"The company is currently operating at a loss."
+11	"The company's stock price has dropped by 20% in the last quarter..."
+
+Every turn:
+	say "[the message corresponding to a Turn Number of turn count in the Table of Financial Spreadsheet]";
+	if Turn Count is 11:
+		end the story saying "You have been fired from the company!".
+
+Section 6 - Achieving victory by taking the CEO chair
+
+Carry out taking the CEO chair:
+	end the story finally saying "The company is yours! Well done!".
